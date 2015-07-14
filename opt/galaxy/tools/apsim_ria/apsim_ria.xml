@@ -1,0 +1,26 @@
+<tool id="apsim_ria" name="APSIM 7.5" version="7.5" force_history_refresh="True">
+   <description>
+   Run APSIM model
+   </description>
+   <requirements>
+      <requirement type="package" version="7.5">apsim_ria</requirement>
+      <requirement type="package" version="2.10">mono</requirement>
+      <requirement type="package" version="1.51.0">boost</requirement>
+      <requirement type="package">pymodules</requirement>
+   </requirements>
+  <command>apsim.sh $apsimInput $apsimOutput</command>
+  <inputs>
+    <param name="apsimInput" type="data" format="zip" label="APSIM Input Files" />
+  </inputs>
+  <outputs>
+    <data format="zip" name="apsimOutput" label="APSIM simulation outputs" />
+  </outputs>
+  <help>
+**What it does**
+
+APSIM (Agricultural Production Systems Simulator) is a farming systems model that simulates the effects of environmental variables and management decisions on crop yield, profits and ecological outcomes. The APSIM 7.5 app uses version 7.5 of the APSIM.
+
+For additional information on APSIM see http://www.apsim.info 
+
+  </help>
+</tool>

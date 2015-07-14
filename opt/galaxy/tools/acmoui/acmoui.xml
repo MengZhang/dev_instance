@@ -1,0 +1,24 @@
+<tool id="acmoui" name="AcmoUI" version="1.2-beta7">
+  <requirements>
+    <requirement type="package" version="1.2">acmoui</requirement>
+  </requirements>
+  <description>Acmo Generate model standard output</description>
+  <command>acmoui.sh $Input $cropModel $Output </command>
+  <inputs>
+    <param name="Input" type="data" format="zip" label="Model Simulation Output files" />
+    <param name="cropModel" type="select" label="Crop Model">
+      <option select="yes" value="dssat">DSSAT</option>
+      <option value="apsim">APSIM</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="csv" name="Output" label="Standard ACMO Output" />
+  </outputs>
+  <help>
+**What it does**
+
+AcmoUI App is a tool translating specific model output data into a harmonized format, called ACMO, which then can be used as input for economic simulation. It develops from its desktop version of AcmoUI and has the similar functionality.
+
+  </help>
+</tool>
+

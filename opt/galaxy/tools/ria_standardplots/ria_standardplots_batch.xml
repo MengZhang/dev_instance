@@ -1,0 +1,51 @@
+<tool id="standardplots_ria_batch" name="Standardplots_RIA_GCM_batch" version="1.0.0" force_history_refresh="True">
+  <requirements>
+    <requirement type="package" version="1.0.0">ria_standardplots</requirement>
+    <requirement type="package" version="1.0.0">R</requirement>
+  </requirements>
+   <description>Generating Standard Plots for Simulation Outputs</description>
+  <command>ria_standardplots_batch.sh "$title" $zipfile $plot_type $plot_format $plotvar $plotoutput $acmooutput</command>
+  <inputs>
+    <param name="title" value="Results" type="text" label="Plot Title" help="Give a name for the plot" />
+    <param name="zipfile" type="data" format="zip" label="Input ACMO files (zipped)" />
+    <param name="plotvar" type="select" label="Plot Variable">
+        <option selected="yes" value="HWAH_S">Simulated harvest yield,dry matter (HWAH_S)</option>
+        <option value="CWAH_S">Simulated above-ground biomass at harvest,dry matter (CWAH_S)</option>
+        <option value="ADAT_S">Simulated anthesis day (ADAT_S)</option>
+        <option value="MDAT_S">Simulated maturity day (MDAT_S)</option>
+        <option value="HADAT_S">Simulated harvest day (HDAT_S)</option>
+        <option value="LAIX_S">Simulated leaf area index, maximum (LAIX_S)</option>
+        <option value="PRCP_S">Total precipitation from planting to harvest (PRCP_S)</option>
+        <option value="ETCP_S">Simulated evapotranspiration, planting to harvest (ETCP_S)</option>
+        <option value="NUCM_S">Simulated N uptake during season (NUCM_S)</option>
+        <option value="NLCM_S">Simulated N leached up to harvest maturity (NLCM_S)</option>
+    </param>
+    <param name="plot_type" optional="false" type="select" display="radio" label="Plot Type">
+        <option value="b">BoxPlot</option>
+        <option value="c">CDF</option>
+    </param>
+    <param name="plot_format" type="select" label="Format of the plot">
+        <option selected="yes" value="pdf">PDF</option>
+        <option value="png">PNG</option>
+    </param>
+  </inputs>
+
+<outputs>
+    <data format="pdf" name="plotoutput" label="Simulation Output Plots">
+	<change_format>
+		<when input="plot_format" value="png" format="png" />
+		<when input="plot_format" value="tiff" format="tiff" />
+		<when input="plot_format" value="jpeg" format="jpeg" />
+	</change_format>
+     </data>
+    <data format="csv" name="acmooutput" label="Combined Acmo Outputs" />
+  </outputs>
+  <help>
+
+**What it does**
+
+The Standardplots_ria app contains R scripts that generates a box or CDF plot for multiple Acmo output files that from C3MP/CTWN analysis.
+
+  </help>
+</tool>
+

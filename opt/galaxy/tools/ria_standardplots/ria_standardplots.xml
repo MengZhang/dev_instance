@@ -1,0 +1,76 @@
+<tool id="standardplots" name="Standardplots_ria" version="1.0.0" force_history_refresh="True">
+  <requirements>
+    <requirement type="package" version="1.0.0">ria_standardplots</requirement>
+    <requirement type="package" version="1.0.0">R</requirement>
+  </requirements>
+   <description>Generating Standard Plots for Simulation Outputs</description>
+  <command>ria_standardplots.sh "$title" $plot_type $plot_format $plotvar $inputfiles $plotoutput $acmooutput</command>
+  <inputs>
+    <param name="title" value="Results" type="text" label="Plot Title" help="Give a name for the plot" />
+    <param name="plotvar" type="select" label="Plot Variable">
+        <option selected="yes" value="HWAH_S">Simulated harvest yield,dry matter (HWAH_S)</option>
+        <option value="CWAH_S">Simulated above-ground biomass at harvest,dry matter (CWAH_S)</option>
+        <option value="ADAT_S">Simulated anthesis day (ADAT_S)</option>
+        <option value="MDAT_S">Simulated maturity day (MDAT_S)</option>
+        <option value="HADAT_S">Simulated harvest day (HDAT_S)</option>
+        <option value="LAIX_S">Simulated leaf area index, maximum (LAIX_S)</option>
+        <option value="PRCP_S">Total precipitation from planting to harvest (PRCP_S)</option>
+        <option value="ETCP_S">Simulated evapotranspiration, planting to harvest (ETCP_S)</option>
+        <option value="NUCM_S">Simulated N uptake during season (NUCM_S)</option>
+        <option value="NLCM_S">Simulated N leached up to harvest maturity (NLCM_S)</option>
+    </param>
+    <param name="plot_type" optional="false" type="select" display="radio" label="Plot Type">
+        <option value="b">BoxPlot</option>
+        <option value="c">CDF</option>
+    </param>
+    <param name="plot_format" type="select" label="Format of the plot">
+        <option selected="yes" value="pdf">PDF</option>
+        <option value="png">PNG</option>
+    </param>
+    <repeat name="macocsvinput" title="Acmo_csv">
+            <param name="acmocsv" type="data" format="csv" label="Acmo csv Input" />
+            <param name="group" label="Output Name" value="" type="text" help="This is the name of each plotting line or box, naming observation, histroy or 1961-2014 for plot variable HWAH_S or HAHAT_S will plot observated value " />
+            <param name="color" label="Output Color" type="select" help="This is the color of each ploting line or box" >
+                <option selected="yes" value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="white">White</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="magenta">Magenta</option>
+                <option value="cyan">Cyan</option>
+                <option value="gold">Gold</option>
+                <option value="purple">Purple</option>
+                <option value="orange">Orange</option>
+                <option value="pink">Pink</option>
+                <option value="olive green">Olive green</option>
+            </param>
+    </repeat>
+  </inputs>
+  <configfiles>
+<configfile name="inputfiles">
+"csv" "group" "color"
+#for $i, $s in enumerate( $macocsvinput ):
+#if $s.acmocsv!="":
+${s.acmocsv} ${s.group} ${s.color}
+#end if
+#end for</configfile>
+  </configfiles>
+  <outputs>
+    <data format="pdf" name="plotoutput" label="Simulation Output Plots">
+	<change_format>
+		<when input="plot_format" value="png" format="png" />
+		<when input="plot_format" value="tiff" format="tiff" />
+		<when input="plot_format" value="jpeg" format="jpeg" />
+	</change_format>
+    </data>
+    <data format="csv" name="acmooutput" label="Combined Acmo Outputs" />
+  </outputs>
+  <help>
+
+**What it does**
+
+The Standardplots_ria app contains R scripts that generates a box or CDF plot for single or multiple Acmo output files. Users can interactively define the type, name, variables, and colors of the plot. Increasing the input data is through the Add new Acmo-csv button. Defining the output name as observation, historical, or number from  1960 to 2015, the resutls of the HWAH or HDATE will be chosen as the plotting input.
+
+  </help>
+</tool>
+

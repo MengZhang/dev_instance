@@ -1,0 +1,43 @@
+<tool id="c3mp_ctwn" name="Sensitivity Analysis" version="1.0.0">
+  <description>Sensitivity Analysis for T,P,CO2</description>
+  <requirements>
+     <requirement type="package">c3mp_ctwn</requirement>
+     <requirement type="package">R</requirement>
+  </requirements>
+  <command>c3mp_ctwn.sh $whichplot $acmoinfo $pdfoutput</command>
+  <inputs>
+   <param name="whichplot" type="select" label="Which plot?">
+        <option selected="yes" value="b">Boxplot</option>
+        <option value="l">Linear</option>
+    </param>
+   
+   <repeat name="ACMO" title="Input ACMO_csv">
+       <param name="ACMO_csv" type="data" format="csv" label="Input ACMO_csv Data" />
+   </repeat>
+   </inputs>
+
+   <configfiles>
+     <configfile name="acmoinfo">
+      #for $i, $s in enumerate( $ACMO ):
+${s.ACMO_csv.file_name} ${s.ACMO_csv.dataset.name}
+      #end for
+     </configfile>
+   </configfiles>
+        
+<outputs>
+    <data format="pdf" name="pdfoutput" label="Sensitivity Analysis Plot"></data>
+</outputs>
+
+
+  <help>
+
+**What it does**
+      
+      This tool plots the sensitivity of simulated yield to changes of T, P, and CO2.It
+      only deals with ACMO.csv files of APSIM and DSSAT, therefore please make sure at 
+      least on ACMO file with the model name (DSSAT or APSIM) included as the input.
+      
+
+  </help>
+
+</tool>

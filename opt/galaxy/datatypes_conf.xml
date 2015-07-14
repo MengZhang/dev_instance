@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<datatypes>
+
+  <!-- <registration converters_path="lib/galaxy/datatypes/converters" display_path="display_applications" proprietary_converter_path="tools/faceit/converters"> -->
+  <registration display_path="display_applications" converters_path="tools/faceit/converters"> 
+  
+
+     <!-- WRF Datatypes: weather research and forecast -->
+
+    <!-- Xml -->
+
+    <!-- WRF experiment description file -->
+    <datatype extension="wrf.model.xml" type="galaxy.datatypes.wrfarw:WrfModelExperiment" mimetype="application/xml" display_in_upload="true" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- GFS aggregate file -->
+    <datatype extension="wps.gfs.dsref.xml" type="galaxy.datatypes.wrfarw:GfsDsRefs" mimetype="application/xml" display_in_upload="false" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- Geogrid outputs aggregate file -->
+    <datatype extension="wps.geoem.dsref.xml" type="galaxy.datatypes.wrfarw:GeoEmDsRefs" mimetype="application/xml" display_in_upload="false" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- Ungrib outputs aggregate file -->
+    <datatype extension="wps.file.dsref.xml" type="galaxy.datatypes.wrfarw:FileDsRefs" mimetype="application/xml" display_in_upload="false" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- Metgrid outputs aggregate file -->
+    <datatype extension="wps.metem.dsref.xml" type="galaxy.datatypes.wrfarw:MetEmDsRefs" mimetype="application/xml" display_in_upload="false" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- Real outputs aggregate file -->
+    <datatype extension="wrf.input.dsref.xml" type="galaxy.datatypes.wrfarw:WrfInputDsRefs" mimetype="application/xml" display_in_upload="false" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- Wrf outputs aggregate file -->
+    <datatype extension="wrf.output.dsref.xml" type="galaxy.datatypes.wrfarw:WrfOutputDsRefs" mimetype="application/xml" display_in_upload="false" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- Wrf restarts aggregate file -->
+    <datatype extension="wrf.restart.dsref.xml" type="galaxy.datatypes.wrfarw:WrfRestartDsRefs" mimetype="application/xml" display_in_upload="false" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- Ungrib output -->
+    <datatype extension="wps.file" type="galaxy.datatypes.wrfarw:File" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+    <!-- NetCDF -->
+    <!-- Geogrid output -->
+    <datatype extension="wps.geoem.nc" type="galaxy.datatypes.wrfarw:GeoEm" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+    <!-- Metgrid output -->
+    <datatype extension="wps.metem.nc" type="galaxy.datatypes.wrfarw:MetEm" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+    <!-- Real output -->
+    <datatype extension="wrf.boundary.nc" type="galaxy.datatypes.wrfarw:WrfBoundary" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+    <datatype extension="wrf.input.nc" type="galaxy.datatypes.wrfarw:WrfInput" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+    <!-- Wrf output -->
+    <datatype extension="wrf.output.nc" type="galaxy.datatypes.wrfarw:WrfOutput" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+    <datatype extension="wrf.restart.nc" type="galaxy.datatypes.wrfarw:WrfRestart" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="wrfarw" proprietary_path="tools/wrf"/>
+
+
+    <!-- Face-IT Galaxy Datatypes: generic earth system -->
+
+    <!-- Xml -->
+    <datatype extension="en.xml" type="galaxy.datatypes.enhanced_xml:EnhancedXml" mimetype="application/xml" display_in_upload="true" proprietary_datatype_module="enhanced_xml" proprietary_path="tools/faceit"/>
+    <datatype extension="noaa.w.obs.xml" type="galaxy.datatypes.noaaweatherobs:NOAAWeatherObs" mimetype="application/xml" display_in_upload="true" proprietary_datatype_module="noaaweatherobs" proprietary_path="tools/faceit"/>
+
+    <!-- Json -->
+    <datatype extension="json" type="galaxy.datatypes.generic_json:GenericJson" mimetype="application/json" display_in_upload="true" proprietary_datatype_module="generic_json" proprietary_path="tools/faceit"/>
+
+    <datatype extension="geo.json" type="galaxy.datatypes.geojson:GeoJson" mimetype="application/json" display_in_upload="true" proprietary_datatype_module="geojson" proprietary_path="tools/faceit"/>
+    <datatype extension="geometry.json" type="galaxy.datatypes.geojson:GeometryJson" mimetype="application/json" display_in_upload="true" proprietary_datatype_module="geojson" proprietary_path="tools/faceit"/>
+    <datatype extension="bbox.json" type="galaxy.datatypes.geojson:BBoxJson" mimetype="application/json" display_in_upload="true" proprietary_datatype_module="geojson" proprietary_path="tools/faceit"/>
+    <datatype extension="crs.json" type="galaxy.datatypes.geojson:CrsJson" mimetype="application/json" display_in_upload="true" proprietary_datatype_module="geojson" proprietary_path="tools/faceit"/>
+
+    <!-- Grib -->
+    <datatype extension="grb" type="galaxy.datatypes.grib:Grib" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="grib" proprietary_path="tools/faceit" />
+    <datatype extension="grib2" type="galaxy.datatypes.grib:Grib2" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="grib" proprietary_path="tools/faceit" />
+
+    <!-- NetCDF -->
+    <datatype extension="nc" type="galaxy.datatypes.netcdf:NetCDF" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="netcdf" proprietary_path="tools/faceit">
+	<converter file="nc_to_agmip.xml" target_datatype="agmip"/>
+    </datatype>
+    <datatype extension="ncml" type="galaxy.datatypes.netcdf:NCML" mimetype="text/plain" display_in_upload="true" proprietary_datatype_module="netcdf" proprietary_path="tools/faceit"/>
+    <datatype extension="cdl" type="galaxy.datatypes.netcdf:CDL" mimetype="text/plain" display_in_upload="true" proprietary_datatype_module="netcdf" proprietary_path="tools/faceit"/>
+    <datatype extension="ecmwf.era40.nc" type="galaxy.datatypes.ecmwfera40:ECMWFERA40" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="ecmwfera40" proprietary_path="tools/faceit"/>
+    <datatype extension="fvcom30.nc" type="galaxy.datatypes.fvcom30:FVCOM30" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="fvcom30" proprietary_path="tools/faceit"/>
+    <datatype extension="nasa.scb.nc" type="galaxy.datatypes.nasascb:NASASCB" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="nasascb" proprietary_path="tools/faceit"/>
+    <datatype extension="gcm.nc" type="galaxy.datatypes.gcm:GCM" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="gcm" proprietary_path="tools/faceit"/>
+    <datatype extension="gcm.latlon.nc" type="galaxy.datatypes.gcm:GCMlatlon" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="gcm" proprietary_path="tools/faceit"/>
+    <!-- -->
+
+    <!-- Face-IT Galaxy Datatypes -->
+    <datatype extension="aceb"     type="galaxy.datatypes.aceb:Aceb" display_in_uplaod="true" proprietary_datatype_module="aceb" proprietary_path="tools/faceit" />
+    <datatype extension="acmo.csv" type="galaxy.datatypes.acmo:Acmo" mimetype="text/plain" display_in_upload="true" proprietary_datatype_module="acmo" proprietary_path="tools/faceit" />
+    <datatype extension="agmip"    type="galaxy.datatypes.agmip:Agmip" display_in_upload="true" proprietary_datatype_module="agmip" proprietary_path="tools/faceit" />
+    <datatype extension="alnk" type="galaxy.datatypes.alnk:Alnk" display_in_upload="true" proprietary_datatype_module="alnk" proprietary_path="tools/faceit"/>
+    <datatype extension="apsim_experiment" type="galaxy.datatypes.apsim:ApsimExperiment" display_in_upload="true" proprietary_datatype_module="apsim" proprietary_path="tools/faceit"/>
+    <datatype extension="apsim_weather" type="galaxy.datatypes.apsim:ApsimWeather" display_in_upload="true" proprietary_datatype_module="apsim" proprietary_path="tools/faceit"/>
+    <datatype extension="apsim_output" type="galaxy.datatypes.apsim:ApsimOutput" display_in_upload="true" proprietary_datatype_module="apsim" proprietary_path="tools/faceit"/>
+    <datatype extension="daymet" type="galaxy.datatypes.daymet:Daymet" display_in_upload="true" proprietary_datatype_module="daymet" proprietary_path="tools/faceit">
+       <converter file="daymet_to_netcdf.xml" target_datatype="nc"/>
+    </datatype>
+    <datatype extension="dome" type="galaxy.datatypes.dome:Dome" display_in_upload="true" proprietary_datatype_module="dome" proprietary_path="tools/faceit"/>
+    <datatype extension="dssat_experiment" type="galaxy.datatypes.dssat:DssatExperiment" display_in_upload="true" proprietary_datatype_module="dssat" proprietary_path="tools/faceit"/>
+    <datatype extension="dssat_output" type="galaxy.datatypes.dssat:DssatOutput" display_in_upload="true" proprietary_datatype_module="dssat" proprietary_path="tools/faceit"/>
+    <datatype extension="dssat_soil" type="galaxy.datatypes.dssat:DssatSoil" display_in_upload="true" proprietary_datatype_module="dssat" proprietary_path="tools/faceit"/>
+    <datatype extension="dssat_weather" type="galaxy.datatypes.dssat:DssatWeather" display_in_upload="true" proprietary_datatype_module="dssat" proprietary_path="tools/faceit"/>
+    <!-- <datatype extension="psims.nc" type="galaxy.datatypes.psims:PSims" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="psims" proprietary_path="tools/faceit"/> -->
+    <datatype extension="apsim.hist.nc" type="galaxy.datatypes.apsim:ApsimHist" mimetype="application/octet-stream" display_in_upload="true" proprietary_datatype_module="apsim" proprietary_path="tools/faceit"/>
+    <datatype extension="gzip" type="galaxy.datatypes.generic_gzip:GenericGzip" mimetype="application/gzip" display_in_upload="true" proprietary_datatype_module="generic_gzip" proprietary_path="tools/faceit"/>
+    <datatype extension="zip" type="galaxy.datatypes.generic_zip:GenericZip" mimetype="application/zip" display_in_upload="true" proprietary_datatype_module="generic_zip" proprietary_path="tools/faceit"/>
+    <!-- -->
+
+    <!-- Regular Galaxy Datatypes -->
+    <datatype extension="bmp" type="galaxy.datatypes.images:Bmp" mimetype="image/bmp"/>
+    <datatype extension="csv" type="galaxy.datatypes.tabular:Tabular" subclass="True" display_in_upload="true" />
+    <datatype extension="data" type="galaxy.datatypes.data:Data" mimetype="application/octet-stream" max_optional_metadata_filesize="1048576" />
+    <datatype extension="eps" type="galaxy.datatypes.images:Eps" mimetype="image/eps"/>
+    <datatype extension="gif" type="galaxy.datatypes.images:Gif" mimetype="image/gif"/>
+    <datatype extension="html" type="galaxy.datatypes.images:Html" mimetype="text/html"/>
+    <datatype extension="im" type="galaxy.datatypes.images:Im" mimetype="image/im"/>
+    <datatype extension="jpg" type="galaxy.datatypes.images:Jpg" mimetype="image/jpeg"/>
+    <datatype extension="laj" type="galaxy.datatypes.images:Laj"/>
+    <datatype extension="pbm" type="galaxy.datatypes.images:Pbm" mimetype="image/pbm"/>
+    <datatype extension="pcd" type="galaxy.datatypes.images:Pcd" mimetype="image/pcd"/>
+    <datatype extension="pcx" type="galaxy.datatypes.images:Pcx" mimetype="image/pcx"/>
+    <datatype extension="pdf" type="galaxy.datatypes.images:Pdf" mimetype="application/pdf"/>
+    <datatype extension="pgm" type="galaxy.datatypes.images:Pgm" mimetype="image/pgm"/>
+    <datatype extension="png" type="galaxy.datatypes.images:Png" mimetype="image/png"/>
+    <datatype extension="ppm" type="galaxy.datatypes.images:Ppm" mimetype="image/ppm"/>
+    <datatype extension="psd" type="galaxy.datatypes.images:Psd" mimetype="image/psd"/>
+    <datatype extension="rast" type="galaxy.datatypes.images:Rast" mimetype="image/rast"/>
+    <datatype extension="rgb" type="galaxy.datatypes.images:Rgb" mimetype="image/rgb"/>
+    <datatype extension="sqlite" type="galaxy.datatypes.binary:SQlite" mimetype="application/octet-stream" display_in_upload="true"/>    
+    <datatype extension="svg" type="galaxy.datatypes.images:Image" mimetype="image/svg+xml"/>
+    <datatype extension="tabular" type="galaxy.datatypes.tabular:Tabular" display_in_upload="true" description="Any data in tab delimited format (tabular)." description_url="https://wiki.galaxyproject.org/Learn/Datatypes#Tabular_.28tab_delimited.29"/>
+    <datatype extension="tiff" type="galaxy.datatypes.images:Tiff" mimetype="image/tiff"/>
+    <datatype extension="toolshed.gz" type="galaxy.datatypes.binary:Binary" mimetype="multipart/x-gzip" subclass="True" />
+    <datatype extension="txt" type="galaxy.datatypes.data:Text" display_in_upload="true" description="Any text file." description_url="https://wiki.galaxyproject.org/Learn/Datatypes#Plain_text"/>
+    <datatype extension="xbm" type="galaxy.datatypes.images:Xbm" mimetype="image/xbm"/>
+    <datatype extension="xls" type="galaxy.datatypes.tabular:Tabular"/>
+    <datatype extension="xml" type="galaxy.datatypes.xml:GenericXml" mimetype="application/xml" display_in_upload="true"/>
+    <datatype extension="xpm" type="galaxy.datatypes.images:Xpm" mimetype="image/xpm"/>
+  </registration>
+
+  <sniffers>
+    <!--
+    The order in which Galaxy attempts to determine data types is
+    important because some formats are much more loosely defined
+    than others.  The following list should be the most rigidly
+    defined format first, followed by next-most rigidly defined,
+    and so on.
+    -->
+
+    <sniffer type="galaxy.datatypes.wrfarw:WrfModelExperiment"/>
+    <sniffer type="galaxy.datatypes.wrfarw:File"/>
+    <sniffer type="galaxy.datatypes.wrfarw:GeoEm"/>
+    <sniffer type="galaxy.datatypes.wrfarw:MetEm"/>
+    <sniffer type="galaxy.datatypes.wrfarw:WrfBoundary"/>
+    <sniffer type="galaxy.datatypes.wrfarw:WrfInput"/>
+    <sniffer type="galaxy.datatypes.wrfarw:WrfOutput"/>
+    <sniffer type="galaxy.datatypes.wrfarw:WrfRestart"/>
+    <sniffer type="galaxy.datatypes.wrfarw:GfsDsRefs"/>
+    <sniffer type="galaxy.datatypes.wrfarw:FileDsRefs"/>
+    <sniffer type="galaxy.datatypes.wrfarw:GeoEmDsRefs"/>
+    <sniffer type="galaxy.datatypes.wrfarw:MetEmDsRefs"/>
+    <sniffer type="galaxy.datatypes.wrfarw:WrfInputDsRefs"/>
+    <sniffer type="galaxy.datatypes.wrfarw:WrfOutputDsRefs"/>
+    <sniffer type="galaxy.datatypes.wrfarw:WrfRestartDsRefs"/>
+
+    <!--<sniffer type="galaxy.datatypes.acmometa:AcmoMeta"/>-->
+    <sniffer type="galaxy.datatypes.acmo:Acmo"/>
+    <sniffer type="galaxy.datatypes.daymet:Daymet"/>
+    <sniffer type="galaxy.datatypes.aceb:Aceb"/>
+    <sniffer type="galaxy.datatypes.dome:Dome"/>
+    <sniffer type="galaxy.datatypes.binary:SQlite"/>
+    <sniffer type="galaxy.datatypes.noaaweatherobs:NOAAWeatherObs"/>
+    <sniffer type="galaxy.datatypes.enhanced_xml:EnhancedXml"/>
+    <sniffer type="galaxy.datatypes.xml:GenericXml"/>
+    <sniffer type="galaxy.datatypes.images:Html"/>
+    <sniffer type="galaxy.datatypes.images:Pdf"/>
+    <sniffer type="galaxy.datatypes.images:Jpg"/>
+    <sniffer type="galaxy.datatypes.images:Png"/>
+    <sniffer type="galaxy.datatypes.images:Tiff"/>
+    <sniffer type="galaxy.datatypes.images:Bmp"/>
+    <sniffer type="galaxy.datatypes.images:Gif"/>
+    <sniffer type="galaxy.datatypes.images:Im"/>
+    <sniffer type="galaxy.datatypes.images:Pcd"/>
+    <sniffer type="galaxy.datatypes.images:Pcx"/>
+    <sniffer type="galaxy.datatypes.images:Ppm"/>
+    <sniffer type="galaxy.datatypes.images:Psd"/>
+    <sniffer type="galaxy.datatypes.images:Xbm"/>
+    <sniffer type="galaxy.datatypes.images:Rgb"/>
+    <sniffer type="galaxy.datatypes.images:Pbm"/>
+    <sniffer type="galaxy.datatypes.images:Pgm"/>
+    <sniffer type="galaxy.datatypes.images:Xpm"/>
+    <sniffer type="galaxy.datatypes.images:Eps"/>
+    <sniffer type="galaxy.datatypes.images:Rast"/>
+    <sniffer type="galaxy.datatypes.grib:Grib2"/>
+    <sniffer type="galaxy.datatypes.grib:Grib"/>
+    <sniffer type="galaxy.datatypes.netcdf:NCML"/>
+    <sniffer type="galaxy.datatypes.netcdf:CDL"/>
+    <sniffer type="galaxy.datatypes.nasascb:NASASCB"/>
+    <sniffer type="galaxy.datatypes.fvcom30:FVCOM30"/>
+    <sniffer type="galaxy.datatypes.ecmwfera40:ECMWFERA40"/>
+    <sniffer type="galaxy.datatypes.gcm:GCMlatlon"/>
+    <sniffer type="galaxy.datatypes.gcm:GCM"/>
+    <sniffer type="galaxy.datatypes.apsim:ApsimHist"/>
+    <!-- <sniffer type="galaxy.datatypes.psims:PSims"/> -->
+    <sniffer type="galaxy.datatypes.netcdf:NetCDF"/>
+    <sniffer type="galaxy.datatypes.geojson:GeoJson"/>
+    <sniffer type="galaxy.datatypes.geojson:GeometryJson"/>
+    <sniffer type="galaxy.datatypes.geojson:BBoxJson"/>
+    <sniffer type="galaxy.datatypes.geojson:CrsJson"/>
+    <sniffer type="galaxy.datatypes.generic_json:GenericJson"/>
+    <sniffer type="galaxy.datatypes.generic_zip:GenericZip"/>
+    <sniffer type="galaxy.datatypes.generic_gzip:GenericGzip"/>
+  </sniffers>
+</datatypes>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<toolparameters>
+	<toolparameter name="gsrc_endpoint"   parameter="galaxy.tools.parameters.globus:SourceEndpoint" />
+    	<toolparameter name="gdst_endpoint"   parameter="galaxy.tools.parameters.globus:DestEndpoint" />
+    	<toolparameter name="gsrc_path"       parameter="galaxy.tools.parameters.globus:SourceEndpointPath" />
+    	<toolparameter name="aws_credentials" parameter="galaxy.tools.parameters.globus:AWSCredentials" />
+    	<toolparameter name="globus_catalog"  parameter="galaxy.tools.parameters.globus:Catalog" />
+</toolparameters>

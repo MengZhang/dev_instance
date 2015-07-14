@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<toolbox>
+  <section id="getext" name="Get Data">
+    <tool file="faceit/upload.xml" />
+    <tool file="globus/from_go.xml" />
+    <tool file="download_soil_data/download_soil_data.xml" />
+    <tool file="download_climate_data/download_climate_data.xml" />
+    <tool file="daymet_browser/daymet_browser.xml" />
+    <tool file="agmip_browser/agmip_browser.xml" />
+    <tool file="download_from_url.xml" />
+  </section>
+  <section id="climate" name="Climate">
+     <tool file="delta_shift/delta_shift.xml" />
+     <tool file="agmip_sce_generator/base_generator.xml" />
+     <tool file="agmip_sce_generator/clim_sce_generator.xml" />
+     <tool file="agmip_sce_generator/agmip2metrics.xml" />
+     <tool file="clim_anomaly/clim_anomaly.xml" />
+  </section>
+  <section id="models" name="Models">
+     <tool file="dssat_easy/dssat_easy.xml" />
+     <tool file="apsim_easy/apsim_easy.xml" />
+     <tool file="dssat_ria/dssat_plus_ria.xml" />
+     <tool file="apsim_ria/apsim_plus_ria.xml" />
+     <tool file="dssat_ria/dssat_plus_batch_ria.xml" />
+     <tool file="apsim_ria/apsim_plus_batch_ria.xml" />
+     <tool file="dssat_ria/dssat_ria.xml" />
+     <tool file="apsim_ria/apsim_ria.xml" />
+  </section>
+  <section id="easysim" name="Easy-SIM">
+     <tool file="experiment_creator/experiment_creator.xml" />
+     <tool file="plot_output/plot_output.xml" />
+     <tool file="model_translator/model_translator.xml" />
+     <tool file="output_to_netcdf/output_to_netcdf.xml" />
+  </section>
+  <section id="ria" name="RIA Tools">
+     <tool file="quadui/quadui2Json.xml" />
+     <tool file="quadui/quadui2JsonBatch.xml" />
+     <tool file="ria_standardplots/ria_standardplots.xml" />
+     <tool file="ria_standardplots/ria_standardplots_batch.xml" />
+     <tool file="plot_correlation/plot_correlation.xml" />
+     <tool file="c3mp_ctwn_plot/c3mp_ctwn.xml" />
+  </section>
+  <section id="agmip" name="AgMIP">
+     <tool file="data_combinator/data_combinator.xml" />
+     <tool file="quadui/quadui2Model.xml" />
+     <tool file="quadui/quadui2JsonC3MP.xml" />
+     <tool file="quadui/quadui2JsonBatch.xml" />
+     <tool file="acmoui/acmoui.xml" />
+     <tool file="unzip/unzip.xml"/>
+     <tool file="quadui/quadui2Json.xml" />
+     <tool file="ria_standardplots/ria_standardplots.xml" />
+     <tool file="plot_correlation/plot_correlation.xml"/>
+  </section>
+  <section id="wrf" name="WRF">
+     <tool file="wrf/makewrfexp.xml" />
+     <tool file="wrf/getgfsfromncep.xml" />
+     <tool file="wrf/geogrid.xml" />
+     <tool file="wrf/ungrib.xml" />
+     <tool file="wrf/metgrid.xml" />
+     <tool file="wrf/real.xml" />
+     <tool file="wrf/wrf.xml" />
+     <tool file="wrf/arwpost.xml" />
+   </section>
+</toolbox>

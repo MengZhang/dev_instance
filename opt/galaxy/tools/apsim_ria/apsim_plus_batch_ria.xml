@@ -1,0 +1,42 @@
+<tool id="apsim_plus_batch_ria" name="APSIM 7.5 Plus for Batch" version="7.5" force_history_refresh="True">
+   <description>Include the functionality of APSIM App, plus translating JSON to APSIM and output ACMO result instead of regular APSIM output</description>
+   <requirements>
+      <requirement type="package" version="7.5">apsim_ria</requirement>
+      <requirement type="package" version="2.10">mono</requirement>
+      <requirement type="package" version="1.51.0">boost</requirement>
+      <requirement type="package">pymodules</requirement>
+   </requirements>
+  <command>
+    #if $condition1.cultivar_source == "customized"
+      apsim_plus_batch.sh $modelInput $cultivarInput $acmoOutput $apsimInput $apsimOutput
+    #else
+      apsim_plus_batch.sh $modelInput "N/A" $acmoOutput $apsimInput  $apsimOutput
+    #end if
+  </command>
+  <inputs>
+    <param name="modelInput" type="data" format="zip" label="Combined ACE plus DOME Package" />
+    <conditional name="condition1">
+    	<param name="cultivar_source" type="select" label="Cultivar Source">
+        <option select="yes" value="customized">Customized</option>
+        <option value="default">System default</option>
+      </param>
+      <when value="customized">
+      	<param name="cultivarInput" type="data" format="zip" label="Cultivar File Package" />
+      </when>
+      <when value="default" />
+    </conditional>
+  </inputs>
+  <outputs>
+    <data format="zip" name="acmoOutput" label="Standard ACMO Output Package from APSIM" />
+    <data format="zip" name="apsimInput" label="APSIM Input File Package" />
+    <data format="zip" name="apsimOutput" label="APSIM simulation output Package" />
+  </outputs>
+  <help>
+**What is does**
+    
+APSIM (Agricultural Production Systems Simulator) is a farming systems model that simulates the effects of environmental variables and management decisions on crop yield, profits and ecological outcomes. The APSIM 7.5 Plus includes the functionalities of APSIM plus data translation from the AgMIP harmonized ACE (JSON) format to APSIM input formats, and data translation from APSIM output formats to the harmonized AgMIP Crop Model Ouptut (ACMO) format. 
+
+For more information, please visit http://www.learnfaceit.org/for-users/ria-workflows
+
+  </help>
+</tool>

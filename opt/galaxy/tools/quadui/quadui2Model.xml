@@ -1,0 +1,73 @@
+<tool id="quadui2Model" name="QuadUI Classic" version="1.3.3">
+  <description>Translate data into the crop model input files (Currently support DSSAT and APSIM)</description>
+  <requirements>
+      <requirement type="package" version="1.3.3">quadui</requirement>
+  </requirements>
+  <command>
+    #if $condition1.input_type == "zip"
+      #if $condition1.condition2.dome_type == "seasonal"
+        quadui_classic.sh $condition1.input_type $condition1.condition2.dome_type $Data1 $Data2 $Data3 $Data4 $DssatInput $ApsimInput
+      #else
+        quadui_classic.sh $condition1.input_type $condition1.condition2.dome_type $Data1 $Data2 $Data3 $DssatInput $ApsimInput
+      #end if
+    #else
+      quadui_classic.sh $condition1.input_type $condition1.condition2.dome_type $Data1 $Data2 $Data3 $DssatInput $ApsimInput
+    #end if
+  </command>
+  <inputs>
+    <conditional name="condition1">
+      <param name="input_type" type="select" label="Input type">
+        <option select="yes" value="zip">csv_zip</option>
+        <option value="aceb">aceb</option>
+      </param>
+      <when value="zip">
+        <conditional name="condition2">
+          <param name="dome_type" type="select" label="DOME type">
+            <option select="yes" value="seasonal">Seasonal Strategy</option>
+            <option value="field">Field Overlay only</option>
+          </param>
+          <when value="seasonal">
+            <param name="Data1" type="data" format="zip" label="Survey CSV Data" />
+            <param name="Data2" type="data" format="zip" label="Field Overlay DOME" />
+            <param name="Data3" type="data" format="zip" label="Seasonal Strategy DOME" />
+            <param name="Data4" type="data" format="txt" label="Linkage between field and DOME" />
+          </when>
+          <when value="field">
+            <param name="Data1" type="data" format="zip" label="Survey CSV Data" />
+            <param name="Data2" type="data" format="zip" label="Field Overlay DOME" />
+            <param name="Data3" type="data" format="txt" label="Linkage between field and DOME" />
+          </when>
+        </conditional>
+      </when>
+      <when value="aceb">
+        <conditional name="condition2">
+          <param name="dome_type" type="select" label="DOME type">
+            <option select="yes" value="seasonal">Seasonal Strategy</option>
+            <option value="field">Field Overlay only</option>
+          </param>
+          <when value="seasonal">
+            <param name="Data1" type="data" format="aceb" label="Survey aceb Data" />
+            <param name="Data2" type="data" format="dome" label="DOME file" />
+            <param name="Data3" type="data" format="txt" label="Linkage between field and DOME" />
+          </when>
+          <when value="field">
+            <param name="Data1" type="data" format="aceb" label="Survey aceb Data" />
+            <param name="Data2" type="data" format="dome" label="DOME file" />
+            <param name="Data3" type="data" format="txt" label="Linkage between field and DOME" />
+          </when>
+        </conditional>
+      </when>
+    </conditional>
+  </inputs>
+  <outputs>
+    <data format="zip" name="DssatInput" label="Generated DSSAT Input Files" />
+    <data format="zip" name="ApsimInput" label="Generated APSIM Input Files" />
+  </outputs>
+  <help>
+**What it does**
+
+The QuadUI Classic App is used for translating users uploaded data into multiple model input files. Currently it only generates files for models of DSSAT and APSIM.
+
+  </help>
+</tool>
+

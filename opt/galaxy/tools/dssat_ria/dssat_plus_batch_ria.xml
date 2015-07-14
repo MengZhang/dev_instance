@@ -1,0 +1,42 @@
+<tool id="dssat_plus_batch_ria" name="DSSAT 4.5 Plus for Batch" version="4.5">
+  <description>Include the functionality of DSSAT App, plus translating JSON to DSSAT and output ACMO result instead of regular DSSAT output</description>
+  <requirements>
+      <requirement type="package" version="">dssat_ria</requirement>
+  </requirements>
+  <command>
+    #if $condition1.cultivar_source == "customized"
+      dssat_plus_batch.sh $modelInput $cultivarInput $acmoOutput $dssatInput $dssatOutput
+    #else
+      dssat_plus_batch.sh $modelInput "N/A" $acmoOutput $dssatInput $dssatOutput
+    #end if
+  </command>
+  <inputs>
+    <param name="modelInput" type="data" format="zip" label="Combined ACE plus DOME Package" />
+    <conditional name="condition1">
+    	<param name="cultivar_source" type="select" label="Cultivar Source">
+        <option select="yes" value="customized">Customized</option>
+        <option value="default">System default</option>
+      </param>
+      <when value="customized">
+      	<param name="cultivarInput" type="data" format="zip" label="Cultivar File Package" />
+      </when>
+      <when value="default" />
+    </conditional>
+  </inputs>
+  <outputs>
+    <data format="zip" name="acmoOutput" label="Standard ACMO Output Package from DSSAT" />
+    <data format="zip" name="dssatInput" label="DSSAT Input File Pacakge" />
+    <data format="zip" name="dssatOutput" label="DSSAT Outputs File Package" />
+  </outputs>
+  <help>
+**What is does**
+
+The popular DSSAT family of crop models, can be used to simulate the impact of environment and management on crops. The DSSAT 4.5 plus includes the functionalities of the DSSAT model plus data translation from the AgMIP harmonized ACE (JSON) format to DSSAT input formats, and data translation from DSSAT output formats to the harmonized AgMIP Crop Model Ouptut (ACMO) format.
+
+Input data type includes Harmonized ACE data format (JSON), Cultivar File Package (Created when customized cultivar source is chosen, setting default, hidden when system default for cultivar source is chosen)
+
+Output data type includes AcmoOutput csv, Zip archive of DSSAT input files, and Zip archive of DSSAT output files.
+
+For more information, please visit http://www.learnfaceit.org/for-users/ria-workflows
+  </help>
+</tool>

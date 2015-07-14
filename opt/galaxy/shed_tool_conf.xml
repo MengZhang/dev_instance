@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<toolbox tool_path="../shed_tools">
+<tool file="toolshed.g2.bx.psu.edu/repos/guerler/charts/e67f691f08e4/charts/charts.xml" guid="toolshed.g2.bx.psu.edu/repos/guerler/charts/charts/1.0.0">
+  <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+    <repository_name>charts</repository_name>
+    <repository_owner>guerler</repository_owner>
+    <installed_changeset_revision>e67f691f08e4</installed_changeset_revision>
+    <id>toolshed.g2.bx.psu.edu/repos/guerler/charts/charts/1.0.0</id>
+    <version>1.0.0</version>
+</tool>
+
+</toolbox>

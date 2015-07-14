@@ -1,0 +1,20 @@
+<tool id="dssat_ria" name="DSSAT 4.5" version="4.5">
+  <description>Run DSSAT model</description>
+  <requirements>
+      <requirement type="package" version="">dssat_ria</requirement>
+  </requirements>
+  <command>dssat.sh $dssatInput $dssatOutput</command>
+  <inputs>
+    <param name="dssatInput" type="data" format="zip" label="DSSAT Input Files" />
+  </inputs>
+  <outputs>
+    <data format="zip" name="dssatOutput" label="DSSAT simulation outputs" />
+  </outputs>
+  <help>
+**What it does**
+The popular DSSAT family of crop models, can be used to simulate the impact of environment and management on crops. The DSSAT 4.5 app uses version 4.5.1.23 of the DSSAT Cropping Systems Model.
+
+For additional information on DSSAT see http://dssat.net.  
+</help>
+</tool>
+

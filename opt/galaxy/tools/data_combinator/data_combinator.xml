@@ -1,0 +1,47 @@
+<tool id="data2aceb" name="DataCombinator" version="1.0.0">
+  <description>Combine and transform the different format of data into a single zip archive and/or an unified ACE Binary format which is used for QuadUI translation</description>
+  <requirements>
+      <requirement type="package">data_combinator</requirement>
+  </requirements>
+  <command>data_combinator.sh $dataPackage $acebDataPackage $jsonDataPackage $zipFile $acebData $jsonData</command>
+  <inputs>
+    <repeat name="DataFiles" title="Data Source">
+      <param name="dataFile" type="data" format="zip" label="Data Source file" />
+    </repeat>
+    <repeat name="AcebDataFiles" title="ACEB Data Source">
+      <param name="acebDataFile" type="data" format="aceb" label="ACEB data file" />
+    </repeat>
+    <repeat name="JsonDataFiles" title="JSON Data Source">
+      <param name="jsonDataFile" type="data" format="json" label="JSON Source file" />
+    </repeat>
+  </inputs>
+  <configfiles>
+    <configfile name="dataPackage">
+      #for $i, $s in enumerate( $DataFiles ):
+        ${s.dataFile.file_name}
+      #end for
+    </configfile>
+    <configfile name="acebDataPackage">
+      #for $i, $s in enumerate( $AcebDataFiles ):
+        ${s.acebDataFile.file_name}
+      #end for
+    </configfile>
+    <configfile name="jsonDataPackage">
+      #for $i, $s in enumerate( $JsonDataFiles ):
+        ${s.jsonDataFile.file_name}
+      #end for
+    </configfile>
+  </configfiles>
+  <outputs>
+  	<data format="zip" name="zipFile" label="Combined zip archive" />
+    <data format="aceb" name="acebData" label="Experiment data with unified format (ACEB)" />
+    <data format="json" name="jsonData" label="Experiment data with unified format (JSON)" />
+  </outputs>
+  <help>
+**What it does**
+
+This App is used for input data from multiple packages or sources. It combines and transforms the different format of data into a single zip archive and/or an unified ACE Binary format which is used for QuadUI translation.
+
+  </help>
+</tool>
+

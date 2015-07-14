@@ -1,0 +1,17 @@
+<tool id="data2aceb_single" name="Data2AcebSingle" version="1.0.0">
+  <description>Transform the different format of data into unified ACE Binary format which is used for QuadUI translation</description>
+  <requirements>
+      <requirement type="package">data2aceb_single</requirement>
+  </requirements>
+  <command>data2aceb_single.sh $dataFile $acebData</command>
+  <inputs>
+    <param name="dataFile" type="data" format="zip" label="Data Source file" />
+  </inputs>
+  <outputs>
+    <data format="aceb" name="acebData" label="Experiment data with unified format" />
+  </outputs>
+  <help>
+    More: 
+  </help>
+</tool>
+
